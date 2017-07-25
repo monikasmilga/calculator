@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<div id="buttonField">
+
+
+</div>
+
+
+<script>
+
+    // array of button objects
+    var buttonArray = [
+        {
+            type: "number",
+            value: 0,
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: 1,
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: 2,
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: 3,
+            buttonClass: "grey"
+        },
+        {
+            type: "number",
+            value: 4,
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: 5,
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: 6,
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: 7,
+            buttonClass: "grey"
+        },
+        {
+            type: "number",
+            value: 8,
+            buttonClass: "grey"
+        },
+        {
+            type: "number",
+            value: 9,
+            buttonClass: "grey"
+        },
+        {
+            type: "action",
+            value: "+-",
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: "C",
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: "%",
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: "<<",
+            buttonClass: "grey"
+        },
+        {
+            type: "number",
+            value: ".",
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: "/",
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: "*",
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: "+",
+            buttonClass: "grey"
+        },
+        {
+            type: "number",
+            value: "-",
+            buttonClass: "grey"
+        },
+
+        {
+            type: "number",
+            value: "=",
+            buttonClass: "grey"
+        }
+    ];
+
+
+    // creates of buttons
+
+    $(document).ready(function (){
+        $('#buttonField').append("<input>");
+    $.each(buttonArray, function (value, symbol) {
+        var x = symbol.value;
+        $("#buttonField").append("<button>" + x + "</button>");
+    });
+    })
+    ;
+
+
+</script>
+</body>
+</html>

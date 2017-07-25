@@ -1,0 +1,20 @@
+#buttonField {
+    background-color: antiquewhite;
+    height: 320px;
+    width: 320px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+button {
+    width: 75px;
+    height: 45px;
+    margin: 2px;
+}
+
+input {
+    width: 300px;
+    height: 45px;
+    margin: 5px;
+}
