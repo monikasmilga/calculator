@@ -9,11 +9,6 @@
 <body>
 
 
-<div id="buttonField">
-
-
-</div>
-
 
 <script>
 
@@ -122,13 +117,13 @@
     ];
 
 
-    // creates of buttons
+    // script creates html div tag, inserts input field and table of buttons
 
     $(document).ready(function () {
+        $('body').prepend("<div id='buttonField'>");
         $('#buttonField').append("<input>");
         $.each(buttonArray, function (value, symbol) {
-            var x = symbol.value;
-            $("#buttonField").append("<button>" + x + "</button>");
+            $("#buttonField").append("<button>" + symbol.value + "</button>");
         });
     })
     ;
