@@ -107,17 +107,18 @@ var buttonArray = [
 // script creates html div tag, inserts input field and table of buttons
 
 $(document).ready(function () {
-    $('body').prepend("<div id='buttonField'>");
+    $('body').prepend("<div id='buttonField'></div>");
     $('#buttonField').append("<input>");
-    $.each(buttonArray, function (value, symbol) {
-        $("#buttonField").append("<button>" + symbol.value + "</button>");
+    $.each(buttonArray, function ( value, symbol) {
+        $("#buttonField").append("<button>" + symbol.value + "</button>")
+            $('button').attr("class", this.buttonClass).attr("type", this.type).attr("value", this.value);
     });
 });
 
 // onclick
 
 $(document).ready(function () {
-    $("button").click(function (event) {
-        console.log(event);
+    $("button").click(function () {
+        console.log(this.value);
     });
 });
