@@ -102,24 +102,54 @@ var buttonArray = [
     }
 ];
 
-var clickedButton;
-// script creates html div tag, inserts input field and table of buttons
+var numberA, numberB;
+
+
+    // script creates html div tag, inserts input field and table of buttons
 
 $(document).ready(function () {
     $('body').prepend("<div id='buttonField'></div>");
-    $('#buttonField').append("<input disabled>"); // change to read only, give value
+    $('#buttonField').append("<input disabled>");
 
     $.each(buttonArray, function (index, buttonArray) {
         $("#buttonField").append($("<button>" + buttonArray.value + "</button>").attr("class", buttonArray.buttonClass).attr("type", buttonArray.type).attr("value", buttonArray.value));
     });
 });
 
-// when clicked gets button value and inserts in input field
+    // when clicked gets button value and inserts in input field
+
+function handleClick(e) {
+    var $b = $(e.currentTarget);
+    $('input').val($b.val());
+    console.log($b.attr('class'), $b.attr('type'));
+
+        // part of the function that checks button type
+
+    if ($b.attr('type') == 'number') {
+        alert('number')
+        
+
+
+
+
+    }
+    else if ($b.attr('type') == 'action') {
+        alert('action')
+
+
+
+
+
+    }
+}
+
+
+
+    // function that triggers handle click function
 
 $(document).ready(function () {
-    $("button").click(function (e) {
-        clickedButton = e.currentTarget;
-        $('input').val(clickedButton.value);
-    });
+    $("button").click(handleClick);
 });
+
+
 
