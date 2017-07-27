@@ -13,12 +13,12 @@ var buttonArray = [
     {
         "type": "action",
         "value": "%",
-        "buttonClass": "lightblue"
+        "buttonClass": "lightblue allowDisable"
     },
     {
         "type": "action",
-        "value": "/",
-        "buttonClass": "lightblue"
+        "value": "÷",
+        "buttonClass": "lightblue allowDisable"
     },
     {
         "type": "number",
@@ -37,8 +37,8 @@ var buttonArray = [
     },
     {
         "type": "action",
-        "value": "*",
-        "buttonClass": "lightblue"
+        "value": "x",
+        "buttonClass": "lightblue allowDisable"
     },
     {
         "type": "number",
@@ -58,7 +58,7 @@ var buttonArray = [
     {
         "type": "action",
         "value": "-",
-        "buttonClass": "lightblue"
+        "buttonClass": "lightblue allowDisable"
     },
     {
         "type": "number",
@@ -78,12 +78,12 @@ var buttonArray = [
     {
         "type": "action",
         "value": "+",
-        "buttonClass": "lightblue"
+        "buttonClass": "lightblue allowDisable"
     },
     {
         "type": "action",
         "value": "+-",
-        "buttonClass": "lightblue"
+        "buttonClass": "lightblue allowDisable"
     },
     {
         "type": "number",
@@ -93,11 +93,11 @@ var buttonArray = [
     {
         "type": "number",
         "value": ".",
-        "buttonClass": "lightblue"
+        "buttonClass": "lightblue allowDisable"
     },
     {
         "type": "action",
         "value": "=",
-        "buttonClass": "lightgreen"
+        "buttonClass": "lightgreen allowDisable"
     }
 ];

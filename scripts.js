@@ -1,4 +1,3 @@
-
 var numberA = '0',
     numberB = '';
 
@@ -47,6 +46,7 @@ function handleClick(e) {
 
                     numberA += $b.val();
                     $('input').val(numberA);
+                    console.log(action)
                 }
                 break;
         }
@@ -57,31 +57,52 @@ function handleClick(e) {
 
         // checks action cases
         switch ($b.val()) {
+
+            case "+":
+            case "-":
+            case "x":
+            case "%":
+            case "÷":
+                var action = $b.val();
+                $('.allowDisable').attr('disabled', true);
+
+                numberA += ' ' + action + ' ';
+                $('input').val(numberA);
+                console.log(action);
+                break;
+
             case "C":
                 numberA = '0';
                 $('input').val(numberA);
+                $('.allowDisable').attr('disabled', false);
                 break;
 
             case "<<":
                 numberA = numberA.substring(0, numberA.length - 1);
-                if (numberA.length === 0){
+                if (numberA.length === 0) {
                     numberA = '0';
                     $('input').val(numberA);
                 }
-                    $('input').val(numberA);
+                $('input').val(numberA);
                 break;
 
             case "+-":
-                if (numberA[0] === "-"){
-                    numberA = numberA.substring(1, numberA.length)
+                if (numberA[0] === "-") {
+                    numberA = numberA.substring(1, numberA.length);
                     $('input').val(numberA);
 
                 } else {
-                    numberA = '-' + numberA;
-                    $('input').val(numberA);
+                    if (numberA.length !== '1' && numberA !== '0') {
+                        numberA = '-' + numberA;
+                        $('input').val(numberA);
+                    }
                 }
+                break;
+
+            default:
 
                 break;
+
         }
 
     }
