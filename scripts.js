@@ -102,50 +102,77 @@ var buttonArray = [
     }
 ];
 
-var numberA, numberB;
+var numberA = '0',
+    numberB = '';
 
 
-    // script creates html div tag, inserts input field and table of buttons
+// script creates html div tag, inserts input field and table of buttons
 
 $(document).ready(function () {
     $('body').prepend("<div id='buttonField'></div>");
-    $('#buttonField').append("<input disabled>");
+    $('#buttonField').append("<input value='0' disabled>");
 
     $.each(buttonArray, function (index, buttonArray) {
         $("#buttonField").append($("<button>" + buttonArray.value + "</button>").attr("class", buttonArray.buttonClass).attr("type", buttonArray.type).attr("value", buttonArray.value));
     });
 });
 
-    // when clicked gets button value and inserts in input field
+// when clicked gets button value and inserts in input field
 
 function handleClick(e) {
     var $b = $(e.currentTarget);
-    $('input').val($b.val());
-    console.log($b.attr('class'), $b.attr('type'));
+    // console.log($b.attr('class'), $b.attr('type'));
 
-        // part of the function that checks button type
+    // part of the function that checks button type
 
-    if ($b.attr('type') == 'number') {
-        alert('number')
-        
+    if ($b.attr('type') === 'number') {
+
+        switch ($b.val()) {
+
+            case '.':
+                if (numberA.indexOf(".") === -1) {
+                    numberA += $b.val();
+                }
+                break;
+
+            case '0':
+                if ((numberA.length === 1) && (numberA === '0')) {
+
+                } else {
+                    numberA += $b.val();
+                    $('input').val(numberA);
+                }
 
 
+                break;
+
+            default:
+                if ((numberA.length === 1) && (numberA === '0')) {
+                    numberA = $b.val();
+                } else {
+
+                numberA += $b.val();
+                $('input').val(numberA);}
+
+                break;
+
+
+        }
+
+        console.log(numberA);
+        $('input').val(numberA);
 
 
     }
-    else if ($b.attr('type') == 'action') {
+    else if ($b.attr('type') === 'action') {
         alert('action')
-
-
-
 
 
     }
 }
 
 
-
-    // function that triggers handle click function
+// function that triggers handle click function
 
 $(document).ready(function () {
     $("button").click(handleClick);
