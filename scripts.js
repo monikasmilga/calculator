@@ -1,110 +1,6 @@
-// array of button objects
-var buttonArray = [
-    {
-        "type": "action",
-        "value": "C",
-        "buttonClass": "lightgreen"
-    },
-    {
-        "type": "action",
-        "value": "<<",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "action",
-        "value": "%",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "action",
-        "value": "/",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "number",
-        "value": 9,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "number",
-        "value": 8,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "number",
-        "value": 7,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "action",
-        "value": "*",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "number",
-        "value": 4,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "number",
-        "value": 5,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "number",
-        "value": 6,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "action",
-        "value": "-",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "number",
-        "value": 1,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "number",
-        "value": 2,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "number",
-        "value": 3,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "action",
-        "value": "+",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "number",
-        "value": "+-",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "number",
-        "value": 0,
-        "buttonClass": "grey"
-    },
-    {
-        "type": "number",
-        "value": ".",
-        "buttonClass": "lightblue"
-    },
-    {
-        "type": "action",
-        "value": "=",
-        "buttonClass": "lightgreen"
-    }
-];
 
 var numberA = '0',
     numberB = '';
-
 
 // script creates html div tag, inserts input field and table of buttons
 
@@ -127,8 +23,8 @@ function handleClick(e) {
 
     if ($b.attr('type') === 'number') {
 
+        // checks 0, . and default cases
         switch ($b.val()) {
-
             case '.':
                 if (numberA.indexOf(".") === -1) {
                     numberA += $b.val();
@@ -142,8 +38,6 @@ function handleClick(e) {
                     numberA += $b.val();
                     $('input').val(numberA);
                 }
-
-
                 break;
 
             default:
@@ -151,22 +45,44 @@ function handleClick(e) {
                     numberA = $b.val();
                 } else {
 
-                numberA += $b.val();
-                $('input').val(numberA);}
-
+                    numberA += $b.val();
+                    $('input').val(numberA);
+                }
                 break;
-
-
         }
-
         console.log(numberA);
         $('input').val(numberA);
-
-
     }
     else if ($b.attr('type') === 'action') {
-        alert('action')
 
+        // checks action cases
+        switch ($b.val()) {
+            case "C":
+                numberA = '0';
+                $('input').val(numberA);
+                break;
+
+            case "<<":
+                numberA = numberA.substring(0, numberA.length - 1);
+                if (numberA.length === 0){
+                    numberA = '0';
+                    $('input').val(numberA);
+                }
+                    $('input').val(numberA);
+                break;
+
+            case "+-":
+                if (numberA[0] === "-"){
+                    numberA = numberA.substring(1, numberA.length)
+                    $('input').val(numberA);
+
+                } else {
+                    numberA = '-' + numberA;
+                    $('input').val(numberA);
+                }
+
+                break;
+        }
 
     }
 }
