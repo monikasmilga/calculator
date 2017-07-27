@@ -17,4 +17,14 @@ input {
     width: 300px;
     height: 45px;
     margin: 5px;
+    text-align: right;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+
 }

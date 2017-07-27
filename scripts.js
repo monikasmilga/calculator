@@ -3,22 +3,22 @@ var buttonArray = [
     {
         "type": "action",
         "value": "C",
-        "buttonClass": "grey"
+        "buttonClass": "lightgreen"
     },
     {
         "type": "action",
         "value": "<<",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "action",
         "value": "%",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "action",
         "value": "/",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "number",
@@ -38,7 +38,7 @@ var buttonArray = [
     {
         "type": "action",
         "value": "*",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "number",
@@ -58,7 +58,7 @@ var buttonArray = [
     {
         "type": "action",
         "value": "-",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "number",
@@ -78,12 +78,12 @@ var buttonArray = [
     {
         "type": "action",
         "value": "+",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "number",
         "value": "+-",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "number",
@@ -93,31 +93,33 @@ var buttonArray = [
     {
         "type": "number",
         "value": ".",
-        "buttonClass": "grey"
+        "buttonClass": "lightblue"
     },
     {
         "type": "action",
         "value": "=",
-        "buttonClass": "grey"
+        "buttonClass": "lightgreen"
     }
 ];
 
-
+var clickedButton;
 // script creates html div tag, inserts input field and table of buttons
 
 $(document).ready(function () {
     $('body').prepend("<div id='buttonField'></div>");
-    $('#buttonField').append("<input>"); // change to read only, give value
+    $('#buttonField').append("<input disabled>"); // change to read only, give value
 
     $.each(buttonArray, function (index, buttonArray) {
         $("#buttonField").append($("<button>" + buttonArray.value + "</button>").attr("class", buttonArray.buttonClass).attr("type", buttonArray.type).attr("value", buttonArray.value));
     });
 });
 
-// when clicked gets button value
+// when clicked gets button value and inserts in input field
 
 $(document).ready(function () {
-    $("button").click(function () {
-        console.log(this.value);
+    $("button").click(function (e) {
+        clickedButton = e.currentTarget;
+        $('input').val(clickedButton.value);
     });
 });
+
