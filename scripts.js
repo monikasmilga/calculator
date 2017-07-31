@@ -270,7 +270,7 @@ function handleClick(e) {
         }
 
         $('input').val(resultString);
-        console.log(numbers, actions);
+        // console.log(numbers, actions);
     }
 }
 
